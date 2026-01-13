@@ -40,13 +40,22 @@ public class List {
     
     /** GIVE Textual representation of this list. */
     public String toString() {
-        String text = "";
+        if (size == 0){
+            return "()";
+        } 
+        String text = "(";
         Node current = first;
-        for (int i = 0 ; i < size ; i++){
+        while (current != null) {
             text = text + current.toString();
+        
+            if (current.next != null) {
+                text = text + " ";
+            }
+            
             current = current.next;
         }
-        return text;
+        
+        return text + ")";
     }
 
     /** Returns the index of the first CharData object in this list
